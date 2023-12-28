@@ -9,6 +9,9 @@ interface CourseCardInfoType {
   videoCount: number;
 }
 
+/**
+ * 로드맵 상세 페이지에서 각 코스를 보여주는 카드
+ */
 export default function CourseCard({
   CourseCardInfo,
 }: {

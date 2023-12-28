@@ -1,3 +1,6 @@
+/**
+ * 로고 SVG 컴포넌트
+ */
 export default function Logo() {
   return (
     <svg

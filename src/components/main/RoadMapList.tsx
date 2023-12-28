@@ -4,9 +4,11 @@ import { useState, useEffect, use } from "react";
 import axios from "axios";
 import RoadMapCard from "@/components/main/RoadMapCard";
 
+/**
+ * 로드맵 카트를 리스트로 보여주는 컴포넌트
+ */
 export default function RoadMapList({ category }: { category: string }) {
   const [roadmapList, setRoadmapList] = useState([]);
-  //   setRoadmapList(1234);
 
   const roadMapListAPI = async () => {
     try {

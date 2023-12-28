@@ -9,6 +9,9 @@ interface RoadmapInfoType {
   likeCount: number;
 }
 
+/**
+ * 메인 화면에서 Roadmap을 보여주는 카드
+ */
 export default function RoadMapCard({
   roadmapInfo,
 }: {

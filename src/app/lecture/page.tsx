@@ -7,6 +7,9 @@ import { IoMenu } from "react-icons/io5";
 import { FaArrowRight } from "react-icons/fa";
 import axios from "axios";
 
+/**
+ * API Type 지정
+ */
 interface LectureDataType {
   title: string;
   imageUrl: string;
@@ -14,6 +17,9 @@ interface LectureDataType {
 }
 
 export default function Lecture() {
+  /**
+   * URL Query String을 통해 courseTitle, lectureId를 받아옴
+   */
   const searchParams = useSearchParams();
   let courseTitle = searchParams.get("courseTitle");
   let lectureId = searchParams.get("lectureId");
@@ -24,6 +30,9 @@ export default function Lecture() {
     lectureId = "0";
   }
 
+  /**
+   * API 호출
+   */
   const [lectureData, setLectureData] = useState<LectureDataType[]>();
   const [lectureYoutubeLink, setLectureYoutubeLink] = useState<string>();
 
@@ -67,8 +76,6 @@ export default function Lecture() {
       <div className={`${sidebar ? "w-[75vw]" : "w-[95vw]"} h-[100vh]`}>
         <iframe
           className="w-[100%] h-[100vh]"
-          // width="560"
-          // height="315"
           src={`${lectureYoutubeLink ? lectureYoutubeLink : ""}`}
           title="YouTube video player"
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
@@ -97,7 +104,6 @@ export default function Lecture() {
                   href={`/lecture?courseTitle=HTML&lectureId=${i}`}
                   className="flex flex-row py-2"
                 >
-                  {/* <div className="w-[9rem] h-[5rem] bg-gray-500 rounded-xl"></div> */}
                   <img
                     src={`${data.imageUrl}`}
                     className="w-[9rem] h-[5rem] rounded-xl"

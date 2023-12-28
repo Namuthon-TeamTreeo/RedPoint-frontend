@@ -10,6 +10,9 @@ import { GoArchive } from "react-icons/go";
 import CourseCard from "@/components/roadmap/CourseCard";
 import Logo from "@/components/Logo";
 
+/**
+ * API Type 지정
+ */
 interface CourseCardInfoType {
   title: string;
   subtitle: string;
@@ -32,6 +35,9 @@ interface RoadmapDetailType {
 }
 
 export default function Course() {
+  /**
+   * URL Query String을 통해 course를 받아옴
+   */
   let { course } = useParams();
   const [roadmapDetail, setRoadmapDetail] = useState<RoadmapDetailType>();
 
@@ -39,6 +45,9 @@ export default function Course() {
     course = "frontend";
   }
 
+  /**
+   * API 호출
+   */
   const roadMapDetailAPI = async () => {
     try {
       const res = await axios.post(
