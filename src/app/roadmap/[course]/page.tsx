@@ -86,7 +86,17 @@ export default function Course() {
           </div>
           <div className="flex items-center justify-center px-3 py-2 bg-[#ECECEC] rounded-xl cursor-pointer">
             <IoShareSocialOutline />
-            <div className="ml-1">공유하기</div>
+            <div
+              className="ml-1"
+              onClick={() => {
+                alert("클립보드에 링크가 복사되었습니다.");
+                navigator.clipboard.writeText(
+                  "https://red-point-frontend.vercel.app/roadmap/frontend"
+                );
+              }}
+            >
+              공유하기
+            </div>
           </div>
         </div>
       </div>
