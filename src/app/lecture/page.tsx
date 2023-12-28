@@ -26,7 +26,6 @@ export default function Lecture() {
 
   const [lectureData, setLectureData] = useState<LectureDataType[]>();
   const [lectureYoutubeLink, setLectureYoutubeLink] = useState<string>();
-  const [isLoading, setIsLoading] = useState<boolean>(true);
 
   const lectureDataAPI = async () => {
     try {
@@ -55,23 +54,14 @@ export default function Lecture() {
     }
   };
 
-  const wait = async () => {
-    await new Promise((resolve) => setTimeout(resolve, 1000));
-  };
-
   useEffect(() => {
     lectureDataAPI();
     getLectureYoutubeLink();
-    wait();
-    setIsLoading(false);
   }, []);
 
   // eslint-disable-next-line react-hooks/rules-of-hooks
   const [sidebar, setSidebar] = useState(true);
 
-  if (isLoading) {
-    return <div className="w-full h-full bg-black"></div>;
-  }
   return (
     <main className="flex flex-row items-center justify-center bg-black h-[100vh] w-[100vw]">
       <div className={`${sidebar ? "w-[75vw]" : "w-[95vw]"} h-[100vh]`}>
@@ -79,7 +69,7 @@ export default function Lecture() {
           className="w-[100%] h-[100vh]"
           // width="560"
           // height="315"
-          src={`${lectureYoutubeLink}`}
+          src={`${lectureYoutubeLink ? lectureYoutubeLink : ""}`}
           title="YouTube video player"
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
         ></iframe>
