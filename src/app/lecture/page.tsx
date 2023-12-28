@@ -55,9 +55,14 @@ export default function Lecture() {
     }
   };
 
+  const wait = async () => {
+    await new Promise((resolve) => setTimeout(resolve, 1000));
+  };
+
   useEffect(() => {
     lectureDataAPI();
     getLectureYoutubeLink();
+    wait();
     setIsLoading(false);
   }, []);
 
